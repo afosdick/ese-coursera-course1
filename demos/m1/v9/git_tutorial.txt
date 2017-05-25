@@ -1,0 +1,145 @@
+#******************************************************************************
+# Copyright (C) 2017 by Alex Fosdick - University of Colorado
+#
+# Redistribution, modification or use of this software in source or binary
+# forms is permitted as long as the files maintain this copyright. Users are 
+# permitted to modify this and use it to learn about the field of embedded
+# software. Alex Fosdick and the University of Colorado are not liable for any
+# misuse of this material. 
+#
+#*****************************************************************************
+
+Demo Git Commands:
+
+#------------------------------------------------------------
+#  Cloning Commands
+#------------------------------------------------------------
+
+Cloning from a Random github repo. There are many examples out there
+  git clone https://github.com/afosdick/ECEN5013.git
+
+Cloning from a local repo on your current machine
+  git clone /local/path/to/repo
+
+Cloning from another server using your SSH keys
+  git clone ssh://sever.url/path/to/repo
+  git clone ssh://username@sever.url/path/to/repo
+
+#------------------------------------------------------------
+#  Log Commands
+#------------------------------------------------------------
+
+Different methods of using git log
+  git log
+  git log --oneline --graph
+  git log --graph --full-history --all --pretty=format:"%h%x09%d%x20%s"
+
+#------------------------------------------------------------
+#  Adding, remoing, and commit code Commands
+#------------------------------------------------------------
+Git current development status in your repo
+  git status
+
+Add a new untracked file into the repo for tracking
+  git add NEWFILENAME.txt
+
+Removing a file from being tracked in the repo
+  git rm NEWFILENAME.txt
+
+Add changed file to staging area, ready to commit
+  git add file-ready-to-commit.txt
+
+Commit current index
+  git commit
+
+#------------------------------------------------------------
+#  Branch Commands
+#------------------------------------------------------------
+Show current branch
+  git branch
+
+Show all branches include remote branches
+  git branch -a
+
+Creating a branch
+  git checkout -b newbranch
+
+Delete a branch
+ git branch -D branch_to_delete
+
+#------------------------------------------------------------
+#  Fetching Latest Commits from a Repo
+#------------------------------------------------------------
+Pulling the latest changes from a remote repo "origin" into your
+local copies of that repo. Does not update the 
+  git fetch origin
+
+  git fetch any-remote-repo-name
+
+#------------------------------------------------------------
+#  Remote Repo Commands
+#------------------------------------------------------------
+
+Show all remotes
+  git remote show
+
+Show verbose information on a remote
+  git remote -v show
+
+show all information on a particular remote
+  git remote show remote-name
+
+
+#------------------------------------------------------------
+#  Pushing changes Commands
+#------------------------------------------------------------
+
+Rebase current HEAD point and back one commit
+onto the origin/master branch
+  git rebase --onto origin/master HEAD~ HEAD
+
+Rebase current HEAD point and back 8 commits
+onto the origin/master branch
+  git rebase --onto origin/master HEAD~8 HEAD
+
+Rebase current branch "branch-name" and back 5 commits
+onto the origin/master branch
+  git rebase --onto origin/master branch-name~8 branch-name
+
+#------------------------------------------------------------
+#  Pushing changes Commands
+#------------------------------------------------------------
+*************************************************************************
+*************************************************************************
+*************************************************************************
+
+                    NEVER FORCE PUSH ANY COMMITS
+
+*************************************************************************
+*************************************************************************
+*************************************************************************
+*************************************************************************
+*************************************************************************
+
+Pushing a particular branch to the master branch in the
+origin repository 
+  git push origin master
+
+Pushing a specific user and url to a remote repo using ssh
+  git push ssh://username@github.com/repo/url.git branch-to-push-to
+
+# These commands push a given <BranchToPush> to the remote master or remote
+# develop branch
+  git push origin <BranchToPush>:develop
+  git push origin <BranchToPush>:master
+
+# Example for a local branch named c1m2_branch
+ git push origin branchname:develop
+
+#------------------------------------------------------------
+#  Show-Ref Commands, used to see all recent changes
+#------------------------------------------------------------
+  git show-ref master
+  git show-ref HEAD
+  git show-ref branch
+

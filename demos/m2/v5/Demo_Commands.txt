@@ -1,0 +1,34 @@
+/******************************************************************************
+ * Copyright (C) 2017 by Alex Fosdick - University of Colorado
+ *
+ * Redistribution, modification or use of this software in source or binary
+ * forms is permitted as long as the files maintain this copyright. Users are 
+ * permitted to modify this and use it to learn about the field of embedded
+ * software. Alex Fosdick and the University of Colorado are not liable for any
+ * misuse of this material. 
+ *
+ *****************************************************************************/
+
+
+Below are the instructions use for the C1M2V5 Demo
+
+GCC is used in the following way on the command line
+  $ gcc [OPTIONS] [FILE-TO-COMPILE]
+
+=============================================================================
+
+  Native Compiler Example Commands
+
+=============================================================================
+This will compile and link. Also specifies the output file to store as the
+executable file (using the -o <FILE> option. All warnings will be treated as
+errors and use the c99 c-standard.
+  $ gcc -std=c99 -Werror - main.c
+
+This will compile and stop before link (-c option). All warnings will be
+enabled, use the c89 C-standard. Also use the -v verbose option to print lots
+of informaiton of what gcc is doing to the terminal.
+  $ gcc -std=c89 -Wall -v -c main.c
+
+To compile in a linker file with the ARM cross compiler and generate a map file
+  $ arm-none-eabi-gcc -o main.out main.c my_file.c -Wl,-T msp432p401r.lds -Wl,-Map=main.map --specs=nosys.specs

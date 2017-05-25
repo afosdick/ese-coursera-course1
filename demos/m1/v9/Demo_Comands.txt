@@ -1,0 +1,71 @@
+/******************************************************************************
+ * Copyright (C) 2017 by Alex Fosdick - University of Colorado
+ *
+ * Redistribution, modification or use of this software in source or binary
+ * forms is permitted as long as the files maintain this copyright. Users are 
+ * permitted to modify this and use it to learn about the field of embedded
+ * software. Alex Fosdick and the University of Colorado are not liable for any
+ * misuse of this material. 
+ *
+ *****************************************************************************/
+#-----------------------------------------------------------------------------
+#
+#   Version Control Demo Commands
+#
+#-----------------------------------------------------------------------------
+
+# Install Git
+ $ sudo apt-get install git gitk
+
+# Clone the repo to your local linux VM
+ $ git clone https://github.com/afosdick/ese-coursera.git
+
+# Register your name and email for your git credentials in your
+# global git configuration. 
+ $ git config --global user.name "John Whatshisface"
+ $ git config --global user.email "John@fakeemail.com"
+
+# Register your name and email for your git credentials in your
+# local repo git configuration. 
+ $ git config --local user.name "John Whatshisface"
+ $ git config --local user.email "John@fakeemail.com"
+
+# Show log history of the current branch (HEAD position)
+ $ git log 
+
+# Show log history of the remote develop branch
+ $ git long origin/develop
+
+# Create a branch off of the origin/develop parent and check it out
+ $ git branch demo origin/develop
+ $ git checkout demo
+# ----OR-----
+ $ git checkout -b demo origin/develop
+
+# Show current status of changed/modified files
+ $ git status
+
+# Modify main.c with some change and save it
+ $ vim main.c
+
+# Stage the changes to main.c to get ready for commit
+ $ git add main.c
+
+# Commit your files. Don't forget to add a good message!
+ $ git commit
+--- OR ----
+ $ git commit -m "This is a commit message"
+
+#----------------------------------------------------------------------------
+
+  Pushing yoru changes to a remote server. Do not push your changes here
+  into the ese-coursera repository. Please skip this step or setup your own
+  remote to test this.
+
+#----------------------------------------------------------------------------
+# Push your change to the remote branch develop at the origin server
+ $ git push origin HEAD:develop
+# ----OR----
+ $ git push origin demo:develop
+
+

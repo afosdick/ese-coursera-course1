@@ -1,0 +1,49 @@
+/******************************************************************************
+ * Copyright (C) 2017 by Alex Fosdick - University of Colorado
+ *
+ * Redistribution, modification or use of this software in source or binary
+ * forms is permitted as long as the files maintain this copyright. Users are 
+ * permitted to modify this and use it to learn about the field of embedded
+ * software. Alex Fosdick and the University of Colorado are not liable for any
+ * misuse of this material. 
+ *
+ *****************************************************************************/
+
+Below are the instructions use for the C1M2V6 Demo
+
+  $ make [TARGET] [OVERRIDES]
+
+ Build Targets:
+      <FILE>.o - Builds <FILE>.o object file [main.c, my_memory.c, my_file.c]
+      build - Builds and links all source files
+      all - Same as build
+      clean - removes all generated files
+
+ Overrides:
+      CPU= - Can be set to differnet ARM processors  [cortex-m0plus, cortex-m4]
+      ARCH= - Can be set to different ARM architectures [armv7e-m, thumb, etc]
+      SPECS= - Can be set to different specs files [nosys.specs, nano.specs]	
+
+=============================================================================
+ Building a specific file
+=============================================================================
+This will build the main.o object file
+ $ make main.o
+
+This will build the my_memory.o object file
+ $ make my_memory.o
+
+This will build the full executable
+ $ make demo.out
+
+=============================================================================
+ Building the entire project
+=============================================================================
+This will build the entire project using a phony target
+ $ build all
+
+=============================================================================
+ Building the entire project
+=============================================================================
+This will clean the build directory of generated files
+ $ make clean

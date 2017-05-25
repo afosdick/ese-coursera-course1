@@ -1,0 +1,52 @@
+#******************************************************************************
+# Copyright (C) 2017 by Alex Fosdick - University of Colorado
+#
+# Redistribution, modification or use of this software in source or binary
+# forms is permitted as long as the files maintain this copyright. Users are 
+# permitted to modify this and use it to learn about the field of embedded
+# software. Alex Fosdick and the University of Colorado are not liable for any
+# misuse of this material. 
+#
+#*****************************************************************************
+
+Below are the instructions use for the C1M2V9 Demo
+
+  $ make [TARGET] [OVERRIDES]
+  $ arm-none-eabi-size -Btd demo.out main.o my_file.o
+  $ arm-none-eabi-size -Bx demo.out
+  $ arm-none-eabi-size -Ad demo.out
+  $ arm-none-eabi-size demo.out
+
+
+=============================================================================
+ Decoding the parts of the elf file
+=============================================================================
+since the ELF format is not human readable, we can use the readelf command
+to provide data on the compiled and linked executable file
+ $ arm-none-eabi-readelf demo.out -all
+
+=============================================================================
+ Dumping compiled object code back to assembly
+=============================================================================
+This will build only the my_file.o object file and then dump the compiled
+file to assembly
+ $ make my_file.o
+ $ arm-none-eabi-objdump --disassemble my_file.o > my_file.dump
+
+This will make for the target processor and then dump the compiled executable
+to assembly in the demo.dump file
+ $ make all
+ $ arm-none-eabi-objdump --disassemble demo > demo.dump
+
+=============================================================================
+ Converting your executable to other formats (SREC and IHEX)
+=============================================================================
+This will dump the executable output from make (a elf little endian format) 
+into an intel hex record format
+ $ arm-none-eabi-objcopy -O ihex demo demo.hex
+
+This will dump the executable output from make (a elf little endian format) 
+into a Motorola S-record format
+ $ arm-none-eabi-objcopy -O srec demo demo.s19
+
+

@@ -1,0 +1,52 @@
+/******************************************************************************
+ * Copyright (C) 2017 by Alex Fosdick - University of Colorado
+ *
+ * Redistribution, modification or use of this software in source or binary
+ * forms is permitted as long as the files maintain this copyright. Users are 
+ * permitted to modify this and use it to learn about the field of embedded
+ * software. Alex Fosdick and the University of Colorado are not liable for any
+ * misuse of this material. 
+ *
+ *****************************************************************************/
+#------------------------------------------------------------------------------
+#
+#  Virtual Machine Demo
+#
+#------------------------------------------------------------------------------
+
+# List the current directory where you are in
+ $ pwd
+
+# List the files in the current directory
+ $ ls
+ $ ls -la
+
+# List Files in your home directory
+ $ ls -la ~/
+
+# Make a directory called temp
+ $ mkdir temp
+
+# Change to a different directory in the current folder named temp
+# cd <directory
+ $ cd ./temp
+ $ cd temp
+
+# Change to Home Directory
+ $ cd ~
+
+# Go back a Directory
+ $ cd ..
+
+# Go back up two folders
+ $ cd ../..
+
+# Dot slash notation, means current directory
+ $ cd ./<folder-in-current-directory>
+
+# Compile the simple file in the current directory
+ $ gcc main.c -o main.out
+
+# Run the output file from compilation in the current folder
+ $ ./main.out
+
