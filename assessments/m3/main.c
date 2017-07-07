@@ -29,18 +29,21 @@ char g3 = 12;
 char g4 = 0;
 extern char g5[N];
 
-int main(){
+int main()
+{
   register int l1;
   int * l2;
   volatile int l3 = 12;
   
   l2 = (int *) malloc( N * g2 * sizeof(char) );
 
-  if ( ! l2 ){
+  if ( ! l2 )
+  {
     return -1;
   }
 
-  for( l1 = 0; l1 < g2; l3++) {
+  for( l1 = 0; l1 < g2; l3++)
+  {
     g1 = func(l2);
   }
 

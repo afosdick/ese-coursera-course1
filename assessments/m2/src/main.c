@@ -20,11 +20,11 @@
  * @date April 1 2017
  *
  */
-#include <stdio.h>
 #include "platform.h"
 #include "memory.h"
 
-extern char buffer[MAX_LENGTH];
+#define MAX_LENGTH (10)
+char buffer[MAX_LENGTH];
 
 /* A pretty boring main file */
 int main(void) {
@@ -46,10 +46,9 @@ int main(void) {
   set_value(buffer, 5, 0x5F);
 
   for ( i = 0; i < MAX_LENGTH; i++ ){
-    printf("%c", buffer[i]);
+    PRINTF("%c", buffer[i]);
   }
-  printf("\n")
-;
+  PRINTF("\n");
   return 0;
 }
 

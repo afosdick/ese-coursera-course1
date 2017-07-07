@@ -10,31 +10,32 @@
 #*****************************************************************************
 
 #------------------------------------------------------------------------------
-# Simple makefile for multitarget build system
+# Simple makefile for the cortex-M0+ build system
 #
-# Use: make [targets] [overrides]
+# Use: make [TARGET] [OVERRIDES]
 #
-# Targets:
+# Build Targets:
 #      <FILE>.o - Builds <FILE>.o object file
 #      build - Builds and links all source files
 #      all - Same as build
-#      clean - Removes all generated files
+#      clean - removes all generated files
 #
 # Overrides:
 #      CPU - ARM Cortex Architecture (cortex-m0plus, cortex-m4)
 #      ARCH - ARM Architecture (arm, thumb)
 #      SPECS - Specs file to give the linker (nosys.specs, nano.specs)
 #
+#
 #------------------------------------------------------------------------------
 include sources.mk
 
-# Overrides
+# Architecture Specific Flags
 CPU = cortex-m0plus
 ARCH = thumb
 SPECS = nosys.specs
 
 # Platform Specific Flags
-LINKER_FILE = MKL25Z128xxx4_flash.ld
+LINKER_FILE = MKL25Z128xxx4_flash.ld 
 
 # Compile Defines
 CC = arm-none-eabi-gcc

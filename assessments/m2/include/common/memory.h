@@ -22,8 +22,6 @@
 #ifndef __MEMORY_H__
 #define __MEMORY_H__
 
-#define MAX_LENGTH (10)
-
 /**
  * @brief Sets a value of a data array 
  *
