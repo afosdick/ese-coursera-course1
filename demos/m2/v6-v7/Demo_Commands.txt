@@ -21,7 +21,7 @@ Below are the instructions use for the C1M2V6 Demo
 
  Overrides:
       CPU= - Can be set to differnet ARM processors  [cortex-m0plus, cortex-m4]
-      ARCH= - Can be set to different ARM architectures [armv7e-m, thumb, etc]
+      ARCH= - Can be set to different ARM architectures [arm, thumb, etc]
       SPECS= - Can be set to different specs files [nosys.specs, nano.specs]	
 
 =============================================================================
