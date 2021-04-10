@@ -10,8 +10,6 @@
  *****************************************************************************/
 #include "my_file.h"
 
-char arr[LENGTH];
-
 void clear(char * ptr, int size){
   int i;
   for(i = 0; i < size; i++) {
