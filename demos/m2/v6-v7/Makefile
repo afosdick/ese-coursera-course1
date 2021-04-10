@@ -48,17 +48,16 @@ OBJS = $(SRCS:.c=.o)
 
 %.o : %.c
 	$(CC) -c $< $(CFLAGS) -o $@
+	
+.PHONY: build all clean
 
-.PHONY: build
-build: all
-
-.PHONY: all
 all: $(TARGET).out
+
+build: all
 
 $(TARGET).out: $(OBJS)
 	$(CC) $(OBJS) $(CFLAGS) $(LDFLAGS) -o $@
-
-.PHONY: clean
+	
 clean:
 	rm -f $(OBJS) $(TARGET).out $(TARGET).map
 
