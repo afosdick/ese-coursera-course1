@@ -49,11 +49,11 @@ OBJS = $(SRCS:.c=.o)
 %.o : %.c
 	$(CC) -c $< $(CFLAGS) -o $@
 
-.PHONY: build
-build: all
+.PHONY: build all
 
-.PHONY: all
 all: $(TARGET).out
+
+build: all
 
 $(TARGET).out: $(OBJS)
 	$(CC) $(OBJS) $(CFLAGS) $(LDFLAGS) -o $@
