@@ -14,14 +14,21 @@
  *
  * <Add Extended Description Here>
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author Saini Manish Kumar
+ * @date 30th May 2021
  *
  */
 #ifndef __STATS_H__
 #define __STATS_H__
 
 /* Add Your Declarations and Function Comments here */ 
+void print_statistics(unsigned char *arr,unsigned int SIZ);
+void find_median(unsigned char *arr,unsigned int SIZ);
+void print_array(unsigned char *arr,unsigned int SIZ);
+void find_minimum(unsigned char *arr,unsigned int SIZ);
+void find_maxmum(unsigned char *arr,unsigned int SIZ);
+void sort_array(unsigned char *arr,unsigned int SIZ);
+void find_mean(unsigned char *arr,unsigned int SIZ);
 
 /**
  * @brief <Add Brief Description of Function Here>
