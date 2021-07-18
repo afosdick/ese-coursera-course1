@@ -9,13 +9,13 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.c
+ * @brief Performs statistical analysis on a dataset
  *
  * <Add Extended Description Here>
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author Navya GuttiVaddi
+ * @date July 18, 2021
  *
  */
 
