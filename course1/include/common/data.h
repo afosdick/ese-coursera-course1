@@ -9,31 +9,25 @@
  *
  *****************************************************************************/
 /**
- * @file main.c
- * @brief Main entry point to the C1M2 Assessment
- *
- * This file contains the main code for the C1M2 assesment. Students
- * are not to change any of the code, they are instead supposed to compile
- * these files with their makefile.
+ * @file data.h
+ * @brief Abstraction of data operations
  *
  * @author Alex Fosdick
  * @date April 1 2017
  *
  */
+
 #include <stdint.h>
 #include <stddef.h>
 
-#include "platform.h"
-#include "stats.h"
-#include "course1.h"
-#include "data.h"
-#include "memory.h"
+#ifndef __DATA_H__
+#define __DATA_H__
 
-/* A pretty boring main file */
-int main(void) {
-  #ifdef COURSE1
-    course1();
-  #endif
-  return 0;
-}
+#define BASE_10 (10)
+#define BASE_16 (16)
 
+uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base);
+
+int32_t my_atoi(uint8_t * ptr, uint8_t digits, uint32_t base);
+
+#endif /* __DATA_H__ */

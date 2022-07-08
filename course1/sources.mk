@@ -11,15 +11,19 @@
 
 # Add your Source files to this variable
 COMMON_SOURCES = main.c \
-	memory.c
+	memory.c \
+	data.c \
+	stats.c \
+	course1.c
 
 MSP432_SOURCES = interrupts_msp432p401r_gcc.c \
 	startup_msp432p401r_gcc.c \
 	system_msp432p401r.c
 
 # Add your include paths to this variable
-COMMON_INCLUDES = ../include/common
+COMMON_INCLUDES = src \
+	include/common
 
-MSP432_INCLUDES = ../include/msp432 \
-	../include/CMSIS
+MSP432_INCLUDES = include/msp432 \
+	include/CMSIS
 

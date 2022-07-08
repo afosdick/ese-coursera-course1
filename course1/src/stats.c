@@ -25,11 +25,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include "stats.h"
+#include "platform.h"
 
 /* Size of the Data Set */
 #define SIZE (40)
-
-void sort_array(char* arr, int length);
 
 void swap(unsigned char* a, unsigned char* b) {
   unsigned char t = *a;
@@ -40,12 +39,12 @@ void swap(unsigned char* a, unsigned char* b) {
 void print_array(unsigned char* arr, int length) {
   for (int i = 0; i < length; i++) {
     if (i == 0) {
-      printf("%d", arr[i]);
+      PRINTF("%d", arr[i]);
       continue;
     }
-    printf(", %d", arr[i]);
+    PRINTF(", %d", arr[i]);
   }
-  printf("\n");
+  PRINTF("\n");
 }
 
 unsigned char find_median(unsigned char* arr, int length) {
@@ -121,49 +120,16 @@ void quicksort(unsigned char* arr, int left, int right) {
   quicksort(arr, pivot_index + 1, right);
 }
 
-void sort_array(char* arr, int length) {
+void sort_array(unsigned char* arr, int length) {
   quicksort(arr, 0, length - 1);
   return;
 }
 
-void print_statistics(char* arr, int length) {
-  printf("Median: %d\n", find_median(arr, SIZE));
-  printf("Mean: %d\n", find_mean(arr, SIZE));
-  printf("Maximum: %d\n", find_maximum(arr, SIZE));
-  printf("Minimum: %d\n", find_minimum(arr, SIZE));
-}
-
-void main(int argc, char* argv[]) {
-
-  unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
-                              114, 88,   45,  76, 123,  87,  25,  23,
-                              200, 122, 150, 90,   92,  87, 177, 244,
-                              201,   6,  12,  60,   8,   2,   5,  67,
-                                7,  87, 250, 230,  99,   3, 100,  90};
-
-  /* Other Variable Declarations Go Here */
-  /* Statistics and Printing Functions Go Here */
-
-  printf("Program name %s\n", argv[0]);
-  if (argc > 2) {
-    printf("Too many arguments\n");
-    return;
-  }
-  char* command = "statistics";
-  if (argc == 2) {
-    command = argv[1];
-  }
-  if (strcmp("statistics", command) == 0) {
-    print_statistics(test, SIZE);
-    return;
-  }
-  if (strcmp("sort", command) == 0) {
-    print_array(test, SIZE);
-    sort_array(test, SIZE);
-    print_array(test, SIZE);
-    return;
-  }
-
+void print_statistics(unsigned char* arr, int length) {
+  PRINTF("Median: %d\n", find_median(arr, SIZE));
+  PRINTF("Mean: %d\n", find_mean(arr, SIZE));
+  PRINTF("Maximum: %d\n", find_maximum(arr, SIZE));
+  PRINTF("Minimum: %d\n", find_minimum(arr, SIZE));
 }
 
 /* Add other Implementation File Code Here */

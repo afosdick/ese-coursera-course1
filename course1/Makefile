@@ -51,12 +51,13 @@ else
 $(error Please specify Platform: HOST or MSP432)
 endif
 endif
-TARGET = c1m2
-COMMON_FLAGS = -Wall -Werror -g -O0 -std=c99 -D$(PLATFORM)
+TARGET = final
+COMMON_FLAGS = -Wall -Werror -g -O0 -std=c99 -D$(PLATFORM) -DCOURSE1
 INCLUDE_FLAGS = $(addprefix -I, $(INCLUDES))
 OBJS = $(SOURCES:.c=.o)
 PREPROCESSED = $(SOURCES:.c=.i)
 ASSEMBLY = $(SOURCES:.c=.asm)
+DEPENDENCY_MAP = $(SOURCES:.c=.d)
 
 
 .PHONY: all
@@ -72,18 +73,18 @@ $(TARGET).out : $(OBJS)
 	$(CC) $(COMMON_FLAGS) $(OBJS) $(CFLAGS) $(LDFLAGS) -o $@
 	size $@
 
-%.o : %.c
+%.o : src/%.c
 	$(CC) $(COMMON_FLAGS) $(INCLUDE_FLAGS) -c $< $(CFLAGS) -o $@
 
-%.d : %.c
+%.d : src/%.c
 	$(CC) $(COMMON_FLAGS) $(INCLUDE_FLAGS) -S $< $(CFLAGS) -o $@ -M
 
-%.asm : %.c
+%.asm : src/%.c
 	$(CC) $(COMMON_FLAGS) $(INCLUDE_FLAGS) -S $< $(CFLAGS) -o $@
 
-%.i : %.c
+%.i : src/%.c
 	$(CC) $(COMMON_FLAGS) $(INCLUDE_FLAGS) -E $< $(CFLAGS) -o $@
 
 .PHONY: clean
 clean:
-	rm -f $(ASSEMBLY) $(PREPROCESSED) $(OBJS) $(TARGET).out $(TARGET).map
+	rm -f $(ASSEMBLY) $(PREPROCESSED) $(OBJS) $(TARGET).out $(TARGET).map $(DEPENDENCY_MAP)

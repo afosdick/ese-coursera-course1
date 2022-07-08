@@ -20,6 +20,9 @@
  * @date April 1 2017
  *
  */
+#include <stdint.h>
+#include <stddef.h>
+#include <stdlib.h>
 #include "memory.h"
 
 /***********************************************************
@@ -48,3 +51,47 @@ void clear_all(char * ptr, unsigned int size){
   set_all(ptr, 0, size);
 }
 
+uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length) {
+  uint8_t* temp_copy = (uint8_t*) malloc(sizeof(uint8_t) * length);
+  for (int i = 0; i < length; i++) {
+    *(temp_copy+i) = *(src+i);
+  }
+  for (int i = 0; i < length; i++) {
+    *(dst+i) = *(temp_copy+i);
+  }
+  free(temp_copy);
+  return dst;
+}
+
+uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length) {
+  return my_memmove(src, dst, length);
+}
+
+uint8_t * my_memset(uint8_t * src, size_t length, uint8_t value) {
+  for (int i = 0; i < length; i++) {
+    *(src+i) = value;
+  }
+  return src;
+}
+
+uint8_t * my_memzero(uint8_t * src, size_t length) {
+  return my_memset(src, length, 0);
+}
+
+uint8_t * my_reverse(uint8_t * src, size_t length) {
+  for (int i = 0; i < (length / 2); i++) {
+    uint8_t temp = *(src+i);
+    *(src+i) = *(src+length-1-i);
+    *(src+length-1-i) = temp;
+  }
+  return src;
+}
+
+int32_t * reserve_words(size_t length) {
+  int32_t* ptr = (int32_t*) malloc(sizeof(int32_t) * length);
+  return ptr;
+}
+
+void free_words(uint32_t * src) {
+  free(src);
+}
