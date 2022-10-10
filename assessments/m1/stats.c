@@ -9,13 +9,13 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.c
+ * @brief Module 1 Peer-graded assigment source code.
  *
- * <Add Extended Description Here>
+ * Implements stats.h, utilizing all functionality for C programming proof-of-concept.
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author Jaeger17
+ * @date 10/10/2022
  *
  */
 
@@ -41,3 +41,4 @@ void main() {
 }
 
 /* Add other Implementation File Code Here */
+
