@@ -32,9 +32,8 @@
  * @param array (unsigned char *): a pointer to the start of an unsigned char array.
  * @param sz (size_t): size of the array.
  * 
- * @return int 
  */
-int print_statistics();
+void print_statistics(unsigned char *array, size_t sz);
 
 /**
  * @brief print the contents of an unsigned char array given the correct size.

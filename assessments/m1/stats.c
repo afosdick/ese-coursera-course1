@@ -27,18 +27,87 @@
 /* Size of the Data Set */
 #define SIZE (40)
 
-void main() {
+int main(void) {
 
   unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
                               114, 88,   45,  76, 123,  87,  25,  23,
                               200, 122, 150, 90,   92,  87, 177, 244,
                               201,   6,  12,  60,   8,   2,   5,  67,
                                 7,  87, 250, 230,  99,   3, 100,  90};
+    
+    puts("Module 1 Submission - Stats\n");
 
-  /* Other Variable Declarations Go Here */
-  /* Statistics and Printing Functions Go Here */
+    printf("%-25s", "array: ");
+    // print the array content
+    print_array(test, SIZE);
+
+    // print all
+    print_statistics(test, SIZE);
 
 }
 
-/* Add other Implementation File Code Here */
+void print_statistics(unsigned char *array, size_t sz)
+{
+    if (NULL != array) {
+        // sort the array
+        printf("%-25s", "sorted: ");
+        print_array(array, sz);
+
+        // print the array min
+        printf("%-25s%d\n", "array min: ", find_minimum(array, sz));
+
+        // print the array max
+        printf("array max: %d\n", find_maximum(array, sz));
+
+        // print the array median
+        printf("array median: %d\n", find_median(array, sz));
+
+        // print the array mean
+        printf("array mean: %.4f\n", find_mean(array, sz));
+    }
+    
+    ;
+}
+
+void print_array(unsigned char *array, size_t sz)
+{
+    if (NULL != array) {
+        for (size_t i = 0; i < sz; i++) {
+            printf("%d ", array[i]);
+        }
+
+        // print a newline after looping.
+        puts("");
+    }  
+}
+
+unsigned char find_median(unsigned char *array, size_t sz)
+{
+    ;
+}
+
+double find_mean(unsigned char *array, size_t sz)
+{
+    ;
+}
+
+unsigned char find_maximum(unsigned char *array, size_t sz)
+{
+    ;
+}
+
+unsigned char find_minimum(unsigned char *array, size_t sz)
+{
+    ;
+}
+
+void sort_array(unsigned char *array, size_t sz)
+{
+    ;
+}
+
+unsigned char uchar_compare(const unsigned char *a, const unsigned char *b)
+{
+    ;
+}
 
