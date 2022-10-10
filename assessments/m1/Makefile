@@ -1,4 +1,5 @@
 CFLAGS += --std=c99 -Wall -Wextra -Wshadow -Wdouble-promotion -Wundef -fno-common # -Werror
+CC = gcc
 
 .PHONY: clean debug profile  minsize
 
@@ -11,12 +12,13 @@ $(TARGET): $(TARGET).c
 debug: CFLAGS += -g3
 debug: $(TARGET)
 
-# $ gprof test gmon.out > prof_output
-profile: CFLAGS += -gprof
+# $ ./stats
+# $ gprof stats gmon.out > prof_output
+profile: CFLAGS += -pg
 profile: $(TARGET)
 
 minsize: CFLAGS += -Os -ffunction-sections -fdata-sections --data-sections
 minsize: $(TARGET)
 
 clean:
-	$(RM) $(TARGET)
+	$(RM) $(TARGET) *.out *.o prof_output

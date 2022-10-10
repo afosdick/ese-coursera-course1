@@ -1,3 +1,5 @@
 .vscode
+prof_output
+gmon.out
 stats
 *.o
