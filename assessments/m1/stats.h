@@ -51,9 +51,9 @@ void print_array(unsigned char *array, size_t sz);
  * @param array (unsigned char *): a pointer to the start of an unsigned char array.
  * @param sz (size_t): size of the array.
  * 
- * @return unsigned char
+ * @return double
  */
-unsigned char find_median(unsigned char *array, size_t sz);
+double find_median(unsigned char *array, size_t sz);
 
 /**
  * @brief find the mean of an unsigned character array given the correct size.

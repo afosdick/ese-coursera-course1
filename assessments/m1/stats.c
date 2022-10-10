@@ -39,13 +39,13 @@ int main(void) {
     
     puts("Module 1 Submission - Stats\n");
 
-    printf("%-25s", "array: ");
+    printf("%-10s", "array: ");
     // print the array content
     print_array(test, SIZE);
 
     // sort the array
     sort_array(test, SIZE);
-    printf("%-25s", "sorted: ");
+    printf("%-10s", "sorted: ");
     print_array(test, SIZE);
 
     // print all
@@ -57,19 +57,17 @@ void print_statistics(unsigned char *array, size_t sz)
 {
     if (NULL != array) {
         // print the array min
-        printf("%-25s%d\n", "min: ", find_minimum(array, sz));
+        printf("%-10s%d\n", "min: ", find_minimum(array, sz));
 
         // print the array max
-        printf("%-25s%d\n", "max: ", find_maximum(array, sz));
+        printf("%-10s%d\n", "max: ", find_maximum(array, sz));
 
         // print the array median
-        printf("median: %d\n", find_median(array, sz));
+        printf("%-10s%.4f\n", "median: ", find_median(array, sz));
 
         // print the array average
-        printf("%-25s%.4f\n", "mean: ", find_mean(array, sz));
+        printf("%-10s%.4f\n", "mean: ", find_mean(array, sz));
     }
-    
-    ;
 }
 
 void print_array(unsigned char *array, size_t sz)
@@ -84,9 +82,31 @@ void print_array(unsigned char *array, size_t sz)
     }  
 }
 
-unsigned char find_median(unsigned char *array, size_t sz)
+double find_median(unsigned char *array, size_t sz)
 {
-    ;
+    if (NULL != array) {
+
+        double median = 0;
+        size_t middle = (sz / 2) - 1;  // subtract 1 because we have a 0 indexed array
+        
+        // if the number is even, the median is the average of the two middle points
+        if (sz % 2 == 0)
+        {
+            double medians_added = array[middle] + array[middle+1];
+            median = medians_added / 2;
+        }
+        // if the count is odd, it is the middle data point in the array
+        else 
+        {
+            median = (double)array[middle];
+            
+        }
+
+        return median;
+
+    } else {
+        return 0;
+    } 
 }
 
 double find_mean(unsigned char *array, size_t sz)
