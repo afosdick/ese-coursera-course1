@@ -22,6 +22,8 @@
 
 
 #include <stdio.h>
+#include <stdlib.h>
+
 #include "stats.h"
 
 /* Size of the Data Set */
@@ -41,6 +43,11 @@ int main(void) {
     // print the array content
     print_array(test, SIZE);
 
+    // sort the array
+    sort_array(test, SIZE);
+    printf("%-25s", "sorted: ");
+    print_array(test, SIZE);
+
     // print all
     print_statistics(test, SIZE);
 
@@ -49,10 +56,6 @@ int main(void) {
 void print_statistics(unsigned char *array, size_t sz)
 {
     if (NULL != array) {
-        // sort the array
-        printf("%-25s", "sorted: ");
-        print_array(array, sz);
-
         // print the array min
         printf("%-25s%d\n", "min: ", find_minimum(array, sz));
 
@@ -141,11 +144,27 @@ unsigned char find_minimum(unsigned char *array, size_t sz)
 
 void sort_array(unsigned char *array, size_t sz)
 {
-    ;
+    qsort(array, sz, sizeof(unsigned char), uchar_compare);
 }
 
-unsigned char uchar_compare(const unsigned char *a, const unsigned char *b)
+static int uchar_compare(const void *a, const void *b)
 {
-    ;
+    // convert void pointer to unsigned char pointer and dereference for comparison
+    unsigned char uchar1 = *(unsigned char*)a;
+    unsigned char uchar2 = *(unsigned char*)b;
+
+    // return the result of this logical comparison arithmetic
+    if (uchar1 == uchar2)
+    {
+        return 0;
+    }
+    else if (uchar1 > uchar2)
+    {
+        return 1;
+    }
+    else
+    {
+        return -1;
+    }
 }
 

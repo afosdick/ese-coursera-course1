@@ -44,7 +44,9 @@ void print_statistics(unsigned char *array, size_t sz);
 void print_array(unsigned char *array, size_t sz);
 
 /**
- * @brief find the median of an unsigned character array given the correct size.
+ * @brief find the median of a sorted unsigned character array given the correct size.
+ * 
+ * @note the array argument MUST be sorted for this to work properly.
  * 
  * @param array (unsigned char *): a pointer to the start of an unsigned char array.
  * @param sz (size_t): size of the array.
@@ -94,10 +96,10 @@ void sort_array(unsigned char *array, size_t sz);
 /**
  * @brief Compare function needed by qsort.
  * 
- * @param a (const unsigned char *) pointer to the first char
- * @param b (const unsigned char *) pointer to the second char
+ * @param a (const void *) pointer to the first char
+ * @param b (const void *) pointer to the second char
  * @return unsigned char 
  */
-static unsigned char uchar_compare(const unsigned char *a, const unsigned char *b);
+static int uchar_compare(const void *a, const void *b);
 
 #endif /* __STATS_H__ */
