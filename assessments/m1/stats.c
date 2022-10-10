@@ -54,16 +54,16 @@ void print_statistics(unsigned char *array, size_t sz)
         print_array(array, sz);
 
         // print the array min
-        printf("%-25s%d\n", "array min: ", find_minimum(array, sz));
+        printf("%-25s%d\n", "min: ", find_minimum(array, sz));
 
         // print the array max
-        printf("%-25s%d\n", "array max: ", find_maximum(array, sz));
+        printf("%-25s%d\n", "max: ", find_maximum(array, sz));
 
         // print the array median
-        printf("array median: %d\n", find_median(array, sz));
+        printf("median: %d\n", find_median(array, sz));
 
-        // print the array mean
-        printf("array mean: %.4f\n", find_mean(array, sz));
+        // print the array average
+        printf("%-25s%.4f\n", "mean: ", find_mean(array, sz));
     }
     
     ;
@@ -88,7 +88,19 @@ unsigned char find_median(unsigned char *array, size_t sz)
 
 double find_mean(unsigned char *array, size_t sz)
 {
-    ;
+    if (NULL != array) {
+        // store the total in an unsigned int since the total can elapse
+        // the storage alotment for an unsigned char.
+        unsigned int total = 0;
+
+        for (size_t i = 0; i < sz; i++) {
+            total += array[i];
+        }
+
+        return (double)total/sz;
+    } else {
+        return 0;
+    } 
 }
 
 unsigned char find_maximum(unsigned char *array, size_t sz)
