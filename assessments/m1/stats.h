@@ -55,9 +55,9 @@ void print_array(unsigned char *array, size_t sz);
  * array.
  * @param sz (size_t): size of the array.
  *
- * @return double
+ * @return unsigned char
  */
-double find_median(unsigned char *array, size_t sz);
+unsigned char find_median(unsigned char *array, size_t sz);
 
 /**
  * @brief find the mean of an unsigned character array given the correct size.
@@ -66,7 +66,7 @@ double find_median(unsigned char *array, size_t sz);
  * array.
  * @param sz (size_t): size of the array.
  */
-double find_mean(unsigned char *array, size_t sz);
+unsigned char find_mean(unsigned char *array, size_t sz);
 
 /**
  * @brief find the median of an unsigned character array given the correct size.

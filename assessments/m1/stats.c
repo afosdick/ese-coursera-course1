@@ -64,10 +64,10 @@ print_statistics(unsigned char *array, size_t sz)
         printf("%-10s%d\n", "max: ", find_maximum(array, sz));
 
         // print the array median
-        printf("%-10s%.4f\n", "median: ", find_median(array, sz));
+        printf("%-10s%d\n", "median: ", find_median(array, sz));
 
         // print the array average
-        printf("%-10s%.4f\n", "mean: ", find_mean(array, sz));
+        printf("%-10s%d\n", "mean: ", find_mean(array, sz));
     }
 }
 
@@ -86,7 +86,7 @@ print_array(unsigned char *array, size_t sz)
     }
 }
 
-double
+unsigned char
 find_median(unsigned char *array, size_t sz)
 {
     if (NULL != array)
@@ -100,13 +100,13 @@ find_median(unsigned char *array, size_t sz)
         // points
         if (sz % 2 == 0)
         {
-            double medians_added = array[middle] + array[middle + 1];
+            int medians_added = array[middle] + array[middle + 1];
             median               = medians_added / 2;
         }
         // if the count is odd, it is the middle data point in the array
         else
         {
-            median = (double)array[middle];
+            median = array[middle];
         }
 
         return median;
@@ -117,7 +117,7 @@ find_median(unsigned char *array, size_t sz)
     }
 }
 
-double
+unsigned char
 find_mean(unsigned char *array, size_t sz)
 {
     if (NULL != array)
@@ -131,7 +131,7 @@ find_mean(unsigned char *array, size_t sz)
             total += array[i];
         }
 
-        return (double)total / sz;
+        return total / sz;
     }
     else
     {
@@ -208,10 +208,10 @@ uchar_compare(const void *a, const void *b)
     }
     else if (uchar1 > uchar2)
     {
-        return 1;
+        return -1;
     }
     else
     {
-        return -1;
+        return 1;
     }
 }
