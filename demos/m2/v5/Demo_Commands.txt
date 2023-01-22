@@ -27,7 +27,7 @@ errors and use the c99 c-standard.
 
 This will compile and stop before link (-c option). All warnings will be
 enabled, use the c89 C-standard. Also use the -v verbose option to print lots
-of informaiton of what gcc is doing to the terminal.
+of information of what gcc is doing to the terminal.
   $ gcc -std=c89 -Wall -v -c main.c
 
 To compile in a linker file with the ARM cross compiler and generate a map file
