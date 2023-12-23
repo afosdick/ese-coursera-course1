@@ -11,7 +11,7 @@
 
 
 ### This is a free access repository for the Coursera Specialization of Embedded
-### Software Essentials to use in conjunction with the course1, the Introductio
+### Software Essentials to use in conjunction with the course1, the Introduction
 ### to Embedded Software and Development Environments.
 
 ### The repository is organized in multiple folders:
